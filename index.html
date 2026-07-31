@@ -39,7 +39,7 @@
   .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px }
 
   /* ── logo ── */
-  .logo-bar { padding: 32px 0 0; text-align: center }
+  .logo-bar { padding: 32px 0 0; text-align: center; margin-bottom: 16px }
   .logo-img { height: 18px; width: auto; display: inline-block }
 
   /* ── hero ── */
@@ -80,7 +80,7 @@
   /* ── social proof strip ── */
   .social-proof {
     display: flex; align-items: center; justify-content: center; gap: 14px;
-    margin-top: 22px;
+    margin-top: 22px; margin-bottom: 20px;
   }
   .avatars {
     display: flex; align-items: center;
@@ -166,18 +166,19 @@
   /* ── responsive ── */
   @media (max-width: 768px) {
     .logo-img { height: 14px }
-    .logo-bar { padding: 24px 0 0 }
-    .hero { padding: 48px 0 0 }
-    .vsl-section { padding-top: 48px }
+    .logo-bar { padding: 24px 0 0; margin-bottom: 28px }
+    .hero { padding: 0 }
+    .social-proof { margin-bottom: 32px }
+    .vsl-section { padding-top: 0 }
     .vsl { border-radius: 10px }
   }
   @media (max-width: 560px) {
     .logo-img { height: 12px }
-    .logo-bar { padding: 24px 0 0 }
-    .hero { padding: 48px 0 0 }
+    .logo-bar { padding: 24px 0 0; margin-bottom: 32px }
+    .hero { padding: 0 }
     .hero .btn-accent { margin-top: 24px; padding: 15px 32px; font-size: 14px }
-    .social-proof { flex-direction: column; gap: 8px }
-    .vsl-section { padding-top: 52px }
+    .social-proof { flex-direction: column; gap: 8px; margin-bottom: 36px }
+    .vsl-section { padding-top: 0 }
     .step-sep { padding: 32px 0 28px }
     .down-arrow { width: 38px; height: 40px }
     .booking-label { font-size: 11px }
