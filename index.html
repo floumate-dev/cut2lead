@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cut2Lead — Organski leadovi, plaćaš po rezultatu</title>
+<meta name="description" content="7 organskih videa, lead magnet, landing stranica, segmentacija. Plaćaš samo $1 po leadu. Bez unapred plaćanja.">
+<meta property="og:title" content="Cut2Lead — Organski leadovi, plaćaš po rezultatu">
+<meta property="og:description" content="Donosimo ti leadove kroz organski sadržaj. $1 po leadu.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+
+<style>
+  :root {
+    --bg: #0B0B13;
+    --accent: #06F998;
+    --accent-soft: rgba(6, 249, 152, .12);
+    --accent-glow: rgba(6, 249, 152, .35);
+    --txt: #FFFFFF;
+    --muted: #9d9daa;
+    --muted-2: #6a6a76;
+    --line: rgba(255,255,255,.08);
+    --maxw: 760px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0 }
+  html { scroll-behavior: smooth; background: var(--bg) }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--txt); line-height: 1.55;
+    min-height: 100vh; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none }
+  img { max-width: 100%; display: block }
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px }
+
+  /* ── logo ── */
+  .logo-bar { padding: 32px 0 0; text-align: center }
+  .logo-img { height: 18px; width: auto; display: inline-block }
+
+  /* ── hero ── */
+  .hero { text-align: center; padding: 56px 0 0 }
+
+  h1 {
+    font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
+    font-size: clamp(28px, 5.5vw, 48px);
+    max-width: 700px; margin: 0 auto;
+    text-wrap: balance;
+  }
+  .accent { color: var(--accent) }
+
+  .hero-sub {
+    margin: 20px auto 0; max-width: 540px;
+    color: var(--muted); font-size: clamp(15px, 2vw, 18px);
+    font-weight: 500; line-height: 1.6;
+  }
+
+  /* ── cta button ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: inherit; font-weight: 700; font-size: 15px;
+    text-transform: uppercase; letter-spacing: .045em;
+    cursor: pointer; border: 0; transition: .2s ease;
+  }
+  .btn-accent {
+    background: var(--accent); color: #0B0B13;
+    padding: 17px 42px; border-radius: 100px;
+    box-shadow: 0 12px 40px -12px var(--accent-glow);
+  }
+  .btn-accent:hover { background: #2dffa8; transform: translateY(-2px) }
+  .btn .arw { transition: transform .18s ease }
+  .btn-accent:hover .arw { transform: translateX(3px) }
+
+  .hero .btn-accent { margin-top: 32px }
+
+  /* ── social proof strip ── */
+  .social-proof {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-top: 22px;
+  }
+  .avatars {
+    display: flex; align-items: center;
+  }
+  .avatars .av {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 2px solid var(--bg);
+    background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 13px; letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  .avatars .av + .av { margin-left: -10px }
+  .avatars .av img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    object-position: top;
+  }
+  .proof-text {
+    font-size: 14px; color: var(--muted); font-weight: 500;
+  }
+  .proof-text b { color: var(--accent); font-weight: 700 }
+
+  /* ── vsl ── */
+  .vsl-section { padding: 48px 0 0 }
+  .vsl-label {
+    text-align: center; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: .15em;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .vsl {
+    position: relative; border-radius: 14px; overflow: hidden;
+    background: #000; aspect-ratio: 16/9;
+    border: 1px solid rgba(6, 249, 152, .2);
+    box-shadow: 0 30px 80px -30px rgba(6, 249, 152, .15);
+  }
+  .vsl iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0 }
+  .vsl-poster {
+    position: absolute; inset: 0; cursor: pointer; display: grid; place-items: center;
+    background: radial-gradient(ellipse 120% 100% at 50% 20%, #141420, #0B0B13 72%);
+  }
+  .vsl-poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85 }
+  .play {
+    position: relative; z-index: 2; width: 80px; height: 80px; border-radius: 50%;
+    background: var(--accent); display: grid; place-items: center; transition: .2s ease;
+    box-shadow: 0 10px 40px -8px var(--accent-glow);
+  }
+  .vsl-poster:hover .play { transform: scale(1.08) }
+  .play::after {
+    content: ""; margin-left: 5px;
+    border-style: solid; border-width: 14px 0 14px 23px;
+    border-color: transparent transparent transparent #0B0B13;
+  }
+
+  /* ── animated arrow ── */
+  .step-sep {
+    display: flex; justify-content: center; align-items: center;
+    padding: 52px 0 48px;
+  }
+  .down-arrow { width: 48px; height: 50px; color: var(--accent); display: block }
+  .chev { animation: c2lChev 1.5s ease-in-out infinite }
+  .c2 { animation-delay: .2s }
+  .c3 { animation-delay: .4s }
+  @keyframes c2lChev { 0%,100% { opacity: .15 } 50% { opacity: 1 } }
+  @media (prefers-reduced-motion: reduce) { .chev { animation: none; opacity: .6 } }
+
+  /* ── iclosed booking ── */
+  .booking-section { padding-bottom: 80px }
+  .booking-label {
+    text-align: center; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: .15em;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .booking-title {
+    text-align: center; font-weight: 700; font-size: clamp(22px, 3.5vw, 32px);
+    letter-spacing: -.02em; margin-bottom: 28px;
+  }
+  .iclosed-slot { background: transparent }
+  .iclosed-widget { display: block; width: 100%; height: 620px }
+  .iclosed-slot iframe { width: 100%; height: 100%; border: 0; display: block }
+
+  /* ── footer ── */
+  footer {
+    padding: 28px 0 32px; text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  footer p { color: var(--muted-2); font-size: 12.5px }
+
+  /* ── responsive ── */
+  @media (max-width: 768px) {
+    .logo-img { height: 14px }
+    .logo-bar { padding: 24px 0 0 }
+    .vsl { border-radius: 10px }
+  }
+  @media (max-width: 560px) {
+    .logo-img { height: 12px }
+    .logo-bar { padding: 20px 0 0 }
+    .hero { padding: 32px 0 0 }
+    .hero .btn-accent { margin-top: 24px; padding: 15px 32px; font-size: 14px }
+    .social-proof { flex-direction: column; gap: 8px }
+    .vsl-section { padding-top: 28px }
+    .vsl-label { font-size: 11px; margin-bottom: 12px }
+    .step-sep { padding: 32px 0 28px }
+    .down-arrow { width: 38px; height: 40px }
+    .booking-label { font-size: 11px }
+    .booking-title { margin-bottom: 20px }
+    .iclosed-widget { height: 780px }
+    .wrap { padding: 0 18px }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGO -->
+<div class="logo-bar">
+  <img src="logo.svg" alt="Cut2Lead" class="logo-img">
+</div>
+
+<!-- HERO -->
+<div class="wrap hero">
+  <h1>$1 po leadu. Skroz organski. <span class="accent">Kompletno done-for-you.</span></h1>
+  <p class="hero-sub">Ako ti ne zaradiš, ne zaradimo ni mi. Dobijaš ceo sistem - skripte, scenarije, editovanje, lead magnet, landing, segmentaciju. Na tebi je samo da snimiš videe.</p>
+  <a href="#poziv" class="btn btn-accent">Zakaži poziv <span class="arw">&rarr;</span></a>
+
+  <!-- Social proof -->
+  <div class="social-proof">
+    <div class="avatars">
+      <div class="av"><img src="client2.jpeg" alt="Marko"></div>
+      <div class="av"><img src="client1.jpeg" alt="Lukas"></div>
+      <div class="av"><img src="client3.jpeg" alt="Ognjen"></div>
+    </div>
+    <span class="proof-text"><b>10.000+</b> generisanih leadova</span>
+  </div>
+</div>
+
+<!-- VSL -->
+<div class="wrap vsl-section">
+  <p class="vsl-label">Pogledaj kako funkcioniše</p>
+  <div class="vsl">
+    <iframe width="100%" height="100%" src="https://app.vidzflow.com/v/uaDlqy2FAQ?dq=576&ap=true&muted=true&loop=false&ctp=true&bv=false&piv=false&playsinline=false&bc=%234E5FFD&controls=play-large%2Cplay%2Cprogress%2Ccurrent-time%2Cmute%2Cvolume%2Csettings%2Cfullscreen" title="CUT2LEAD" frameborder="0" scrolling="no" allow="fullscreen"></iframe>
+  </div>
+</div>
+
+<!-- ANIMATED ARROW -->
+<div class="step-sep" aria-hidden="true">
+  <svg class="down-arrow" viewBox="0 0 48 50" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path class="chev c1" d="M9 9 L24 21 L39 9"/>
+    <path class="chev c2" d="M9 20 L24 32 L39 20"/>
+    <path class="chev c3" d="M9 31 L24 43 L39 31"/>
+  </svg>
+</div>
+
+<!-- BOOKING (iClosed) -->
+<div class="wrap booking-section" id="poziv">
+  <p class="booking-label">Sledeći korak</p>
+  <h2 class="booking-title">Zakaži <span class="accent">besplatan poziv</span></h2>
+  <div class="iclosed-slot" id="iclosedSlot">
+    <div class="iclosed-widget" data-url="https://app.iclosed.io/e/dusankocic/cut2lead-discovery-call" title="CUT2LEAD | Discovery call" style="width: 100%; height: 620px"></div>
+    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="yr"></span> Cut2Lead</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
