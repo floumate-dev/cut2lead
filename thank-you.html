@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termin je rezervisan — Cut2Lead</title>
+<meta name="description" content="Poziv je uspešno zakazan. Potvrda je poslata na mejl.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Termin je rezervisan — Cut2Lead">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+
+<style>
+  :root {
+    --bg: #0B0B13;
+    --accent: #06F998;
+    --accent-soft: rgba(6, 249, 152, .12);
+    --accent-glow: rgba(6, 249, 152, .35);
+    --txt: #FFFFFF;
+    --muted: #9d9daa;
+    --muted-2: #6a6a76;
+    --line: rgba(255,255,255,.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0 }
+  html { background: var(--bg) }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--txt); line-height: 1.55;
+    min-height: 100vh; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    display: flex; flex-direction: column;
+  }
+  img { max-width: 100%; display: block }
+  .wrap { width: 100%; max-width: 620px; margin: 0 auto; padding: 0 22px }
+
+  /* ── main ── */
+  main {
+    flex: 1;
+    text-align: center;
+    padding: 112px 0 72px;
+  }
+
+  /* ── check badge ── */
+  .check {
+    width: 76px; height: 76px; margin: 0 auto 32px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid rgba(6, 249, 152, .3);
+    display: grid; place-items: center;
+    box-shadow: 0 12px 44px -14px var(--accent-glow);
+    animation: pop .5s cubic-bezier(.34, 1.56, .64, 1) both;
+  }
+  .check svg {
+    width: 34px; height: 34px;
+    stroke: var(--accent); stroke-width: 3;
+    fill: none; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .check svg path {
+    stroke-dasharray: 32; stroke-dashoffset: 32;
+    animation: draw .45s ease .3s forwards;
+  }
+  @keyframes pop { from { opacity: 0; transform: scale(.8) } to { opacity: 1; transform: scale(1) } }
+  @keyframes draw { to { stroke-dashoffset: 0 } }
+  @media (prefers-reduced-motion: reduce) {
+    .check { animation: none }
+    .check svg path { animation: none; stroke-dashoffset: 0 }
+  }
+
+  h1 {
+    font-weight: 800; letter-spacing: -.03em; line-height: 1.15;
+    font-size: clamp(28px, 5vw, 42px);
+    text-wrap: balance;
+  }
+  .accent { color: var(--accent) }
+
+  .sub {
+    margin: 18px auto 0; max-width: 460px;
+    color: var(--muted); font-size: clamp(15px, 2vw, 17px);
+    font-weight: 500; line-height: 1.65;
+  }
+
+  .note {
+    margin: 24px auto 0;
+    color: var(--muted-2); font-size: 14px; font-weight: 500;
+    max-width: 420px;
+  }
+
+  /* ── footer ── */
+  footer {
+    padding: 24px 0 32px; text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  footer p { color: var(--muted-2); font-size: 12.5px }
+
+  /* ── responsive ── */
+  @media (max-width: 768px) {
+    main { padding: 88px 0 64px }
+  }
+  @media (max-width: 560px) {
+    main { padding: 72px 0 56px }
+    .check { width: 66px; height: 66px; margin-bottom: 26px }
+    .check svg { width: 30px; height: 30px }
+    .wrap { padding: 0 18px }
+  }
+</style>
+</head>
+<body>
+
+<!-- MAIN -->
+<main>
+  <div class="wrap">
+    <div class="check">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 12.5 L9.5 18 L20 6.5"/>
+      </svg>
+    </div>
+
+    <h1>Termin je <span class="accent">rezervisan.</span></h1>
+
+    <p class="sub">Potvrdu i kalendarski poziv smo poslali na mejl. Ako ne stigne za par minuta, proveri spam.</p>
+
+    <p class="note">Vidimo se na pozivu.</p>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="yr"></span> Cut2Lead</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
